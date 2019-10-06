@@ -1,0 +1,11 @@
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\bin\Debug\netcoreapp2.1\Triangles.deps.json
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\bin\Debug\netcoreapp2.1\Triangles.runtimeconfig.json
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\bin\Debug\netcoreapp2.1\Triangles.runtimeconfig.dev.json
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\bin\Debug\netcoreapp2.1\Triangles.dll
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\bin\Debug\netcoreapp2.1\Triangles.pdb
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.csprojAssemblyReference.cache
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.csproj.CoreCompileInputs.cache
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.AssemblyInfoInputs.cache
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.AssemblyInfo.cs
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.dll
+D:\All\EPAM\epam\Triangles\Triangles\Triangles\obj\Debug\netcoreapp2.1\Triangles.pdb
