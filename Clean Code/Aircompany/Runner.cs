@@ -22,17 +22,17 @@ namespace Aircompany
             new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT)
-    };
+        };
         public static void Main(string[] args)
         {
             Airport airport = new Airport(planes);
             Airport militaryAirport = new Airport(airport.GetMilitaryPlanes());
             Airport passengerAirport = new Airport(airport.GetPassengersPlanes());
             Console.WriteLine(militaryAirport
-                              .SortByMaxDistance()
+                              .SortByMaxDistanceFlights()
                               .ToString());
             Console.WriteLine(passengerAirport
-                              .SortByMaxSpeed()
+                              .SortByMaxSpeedFlights()
                               .ToString());
             Console.WriteLine(passengerAirport.GetPassengerPlaneWithMaxPassengersCapacity());           
         }
