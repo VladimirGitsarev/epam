@@ -29,7 +29,7 @@ namespace AircompanyTests.Tests
         };
 
         [Test]
-        public void Airport_AirportHasAtLeastOneMilitaryTransportPlane_ReturnsTrue()
+        public void AirportHasMilitaryTransportPlane()
         {
             var airport = new Airport(_planes);
             var transportMilitaryPlanes = airport.GetTransportMilitaryPlanes().ToList();
@@ -39,7 +39,7 @@ namespace AircompanyTests.Tests
         }
 
         [Test]
-        public void Airport_PlanesSortedByMaxLoadCapacity_SortedCorrect()
+        public void AirportPlanesSortedByMaxLoadCapacitySortedCorrect()
         {
             var airport = new Airport(_planes);
             var expectedPlanesCollectionSortedByMaxLoadCapacity = airport.GetPlanes()
