@@ -20,11 +20,11 @@ namespace FlyuiaTestFramework.Tests
         [Test]
         public void SendDataWithSomeEmptyFields()
         {
-            TakeScreenshotWhenTestFailed(() =>
+            SaveScreenshotOnTestFailure(() =>
             {
                 MainPage mainPage = new MainPage(Driver)
                     .ClickGetSpecialProposionsSubscribeButton()
-                    .FillInUserDataFields(UserDataCreator.WithFilledFields())
+                    .FillInUserDataFields(UserDataCreator.FilledUserFields())
                     .ClickCountrySelectorButton()
                     .ClickOutOfAnyButtons();
                 Assert.AreEqual("Будь ласка, вкажіть країну", mainPage.errorMessage.Text);
@@ -32,9 +32,9 @@ namespace FlyuiaTestFramework.Tests
         }
 
         [Test]
-        public void EnterWrongFlight()
+        public void EnterWrongFlightToSubscriptionForm()
         {
-            TakeScreenshotWhenTestFailed(() =>
+            SaveScreenshotOnTestFailure(() =>
             {
                 OnlineBoardPage onlineBoardPage = new MainPage(Driver)
                 .GoToOnlineBoardPage()

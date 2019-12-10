@@ -17,7 +17,6 @@ namespace FlyuiaTestFramework.Pages
             this.driver = driver;
         }
 
-
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-v2 btn-blue btn-small']")]
         private IWebElement specialsBtn;
 
@@ -51,6 +50,7 @@ namespace FlyuiaTestFramework.Pages
             action.MoveToElement(onlineBoardBtn).Click().Build().Perform();
             return new OnlineBoardPage(driver);
         }
+
         public MainPage FillInUserDataFields(UserData data)
         {
             emailInput.SendKeys(data.Email);
@@ -59,6 +59,7 @@ namespace FlyuiaTestFramework.Pages
             mobileInput.SendKeys(data.Mobile);
             return this;
         }
+
         public MainPage ClickGetSpecialProposionsSubscribeButton()
         {
             specialsBtn.Click();
@@ -70,6 +71,7 @@ namespace FlyuiaTestFramework.Pages
             countrySelectorBtn.Click();
             return this;
         }
+
         public MainPage ClickOutOfAnyButtons()
         {
             modalEmptySpace.Click();

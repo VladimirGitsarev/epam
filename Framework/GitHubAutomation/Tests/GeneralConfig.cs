@@ -18,7 +18,7 @@ namespace FlyuiaTestFramework.Tests
             Driver.Navigate().GoToUrl("https://www.flyuia.com/ua/ua/home");
         }
 
-        protected void TakeScreenshotWhenTestFailed(Action action)
+        protected void SaveScreenshotOnTestFailure(Action action)
         {
             try
             {

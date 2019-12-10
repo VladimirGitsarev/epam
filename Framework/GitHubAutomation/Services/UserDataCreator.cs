@@ -6,7 +6,7 @@ namespace FlyuiaTestFramework.Services
 {
     class UserDataCreator
     {
-       public static UserData WithFilledFields()
+       public static UserData FilledUserFields()
        {
             return new UserData(TestDataReader.GetTestData("Email"), TestDataReader.GetTestData("UserName"), TestDataReader.GetTestData("UserSecondName"), TestDataReader.GetTestData("Mobile"));
        }

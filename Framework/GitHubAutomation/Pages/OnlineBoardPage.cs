@@ -33,6 +33,7 @@ namespace FlyuiaTestFramework.Pages
             flightCheckBox.Click();
             return this;
         }
+
         public OnlineBoardPage InputFlightNumber(string text)
         {
             flightInput.SendKeys(text);
