@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using NUnit.Framework;
@@ -33,6 +33,7 @@ namespace FlyuiaTestFramework.Tests
         }
 
         [Test]
+		[Category("RandomValues")]
         public void EnterWrongFlight()
         {
             TakeScreenshotWhenTestFailed(() =>
@@ -48,6 +49,7 @@ namespace FlyuiaTestFramework.Tests
         }
 
         [Test]
+		[Category("RandomValues")]
         public void EnterWrongPromo()
         {
             TakeScreenshotWhenTestFailed(() =>
@@ -128,7 +130,8 @@ namespace FlyuiaTestFramework.Tests
                 Assert.IsTrue(mainPage.searchFlightBtn.Enabled);
             });
         }
-
+		
+		[Category("RandomValues")]
         [Test]
         public void LogInWithWrongUserData()
         {
