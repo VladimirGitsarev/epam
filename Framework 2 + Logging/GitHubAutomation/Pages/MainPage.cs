@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Support.PageObjects;
 using FlyuiaTestFramework.Models;
 using FlyuiaTestFramework.Utils;
+using System.Threading;
 
 
 namespace FlyuiaTestFramework.Pages
@@ -23,7 +24,8 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-v2 btn-blue btn-small']")]
         public IWebElement specialsBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='email']")]
+        public IWebElement closeStartWindowBtn;
+        //[FindsBy(How = How.XPath, Using = "//*[@id='email']")]
         public IWebElement emailInput;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='CustomFields_2_8']")]
@@ -35,13 +37,13 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='subscribe_phone']")]
         public IWebElement mobileInput;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='frmSS8']div[4]/span")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='frmSS8']/div/div[4]/div[1]/div/div/span")]
         public IWebElement countrySelectorBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='frmSS8']/div/div[5]")]
         public IWebElement modalEmptySpace;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='frmSS8']/div[5]/span")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='frmSS8']/div/div[4]/div[1]/div/span")]
         public IWebElement errorMessage;
 
         [FindsBy(How = How.XPath, Using = "//*[@class='container-fluid main-buttons white-bgr']/div/div[4]")]
@@ -59,43 +61,46 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[6]")]
         public IWebElement oneCountryFromElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='list-item ng-star-inserted']")]
+        //[FindsBy(How = How.XPath, Using = "//*[@class='cities-container ng-star-inserted']/div/div[1]")]
         public IWebElement oneCityFromElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='sw-row']/i")]
+        public IWebElement oneSameCityToElement;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[2]/sw-form-control-suggester/div/i")]
         public IWebElement countryToPickerShowBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@class='sw-container']/sw-form-control-select/sw-form-control-container")]
         public IWebElement countryToListBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[75]")]
+        [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[7]")]
         public IWebElement oneCountryToElement;
 
         [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[6]")]
         public IWebElement oneCountryToSameElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='list-item ng-star-inserted']")]
         public IWebElement oneCityToElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='value-as-text-container ng-star-inserted']")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[3]/div[1]/sw-form-control-datepicker/div[1]/div[2]/div")]
         public IWebElement dataPickerBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='cdk-overlay-42']/div/div[30]")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='cdk-overlay-5']/div/div[2]/div[3]/div[2]/div[32]/button")]
         public IWebElement chooseDayElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='cdk-overlay-42']/div/div[1]")]
+        [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div/div/div/div[2]/div[3]/div[2]/div[3]")]
         public IWebElement choosePastDayElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='focus-trap ng-valid ng-dirty ng-touched']")]
+        
+
+        [FindsBy(How = How.XPath, Using = "//*[@class='focus-trap ng-untouched ng-pristine ng-valid']")]
         public IWebElement promoInput;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='SEARCH_WIDGET_FORM_BUTTONS_SEARCH_FLIGHTS']")]
         public IWebElement searchFlightBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='mat-dialog-0']/sw-dialog-error/span")]
+        //[FindsBy(How = How.XPath, Using = "//*[@id='mat-dialog-0']/sw-dialog-error/div/div[2]/span")]
         public IWebElement promoErrorMsg;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='search-widget-container']/sw-search-flights/sw-form-control-passengers")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[4]/div[1]/sw-form-control-passengers/div[1]/div[2]/div")]
         public IWebElement choosePasengersCountBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='cdk-overlay-0']/div/button[2]")]
@@ -104,25 +109,25 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='warning-pax-count")]
         public IWebElement countBabiesErrorMsg;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='col-md-7 nav-wrapper/ul/li[4]")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[4]/a")]
         public IWebElement flightsScheduleBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@class='obe-login")]
+        [FindsBy(How = How.XPath, Using = "//*[@class='obe-login']")]
         public IWebElement logInFormBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='mat-input-65']")]
+        //[FindsBy(How = How.XPath, Using = "//*[@class='mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid")]
         public IWebElement logInEmailInput;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='mat-input-66']")]
+        //[FindsBy(How = How.XPath, Using = "//*[@id='mat-input-21']")]
         public IWebElement logInPasswordInput;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='signInEmailForm']/perfect-scrollbar/button")]
+        //[FindsBy(How = How.XPath, Using = "/html/body/div[5]/div[2]/div/mat-dialog-container/app-sign-in-dialog/perfect-scrollbar/div/div[1]/div/mat-tab-group/div/mat-tab-body[1]/div/app-sign-in/mat-tab-group/div/mat-tab-body[1]/div/app-sign-in-email/div/div/div[1]/form/div[4]/button")]
         public IWebElement logInBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='validation-error ng-star-inserted']")]
+        //[FindsBy(How = How.XPath, Using = "//*[@id='validation-error ng-star-inserted']")]
         public IWebElement logInErrorMsg;
         
-
+        
         public static IWebElement WaitForElementToAppear(IWebDriver driver, int waitTime, By waitingElement)
         {
             IWebElement wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementExists(waitingElement));
@@ -154,6 +159,7 @@ namespace FlyuiaTestFramework.Pages
 
         public MainPage FillInUserDataFields(UserData data)
         {
+            emailInput = GetElement("//*[@id='email']");
             Logger.Log.Info("Fill in fields with data: Email: " + data.Email + "User Name: " + 
                 data.UserName + "User Second Name: " + data.UserSecondName + "Phone: " + data.Mobile);
             emailInput.SendKeys(data.Email);
@@ -166,6 +172,8 @@ namespace FlyuiaTestFramework.Pages
         public MainPage ClickGetSpecialProposionsSubscribeButton()
         {
             Logger.Log.Info("Open special propositions");
+            //closeStartWindowBtn = GetElement("//*[@id='promo-sub']/div/div/div[1]/span");
+            //closeStartWindowBtn.Click();
             specialsBtn.Click();
             return this;
         }
@@ -204,6 +212,7 @@ namespace FlyuiaTestFramework.Pages
             countryFromPickerShowBtn.Click();
             countryFromListBtn.Click();
             oneCountryFromElement.Click();
+            oneCityFromElement = GetElement("//*[@id='cdk-overlay-0']/div/div[2]/div/perfect-scrollbar/div/div[1]");
             oneCityFromElement.Click();
             return this;
         }
@@ -214,6 +223,7 @@ namespace FlyuiaTestFramework.Pages
             countryToPickerShowBtn.Click();
             countryToListBtn.Click();
             oneCountryToElement.Click();
+            oneCityToElement = GetElement("//*[@id='cdk-overlay-2']/div/div[2]/div/perfect-scrollbar/div/div[1]/div");
             oneCityToElement.Click();
             return this;
         }
@@ -224,7 +234,8 @@ namespace FlyuiaTestFramework.Pages
             countryToPickerShowBtn.Click();
             countryToListBtn.Click();
             oneCountryToSameElement.Click();
-            oneCityToElement.Click();
+            oneSameCityToElement = GetElement("//*[@id='cdk-overlay-2']/div/div[2]/div/perfect-scrollbar/div/div[1]/div");
+            oneSameCityToElement.Click();
             return this;
         }
 
@@ -247,6 +258,7 @@ namespace FlyuiaTestFramework.Pages
         {
             Logger.Log.Info("Search for flights");
             searchFlightBtn.Click();
+            promoErrorMsg = GetElement("//*[@id='mat-dialog-0']/sw-dialog-error/div/div[2]/span");
             return this;
         }
 
@@ -274,7 +286,9 @@ namespace FlyuiaTestFramework.Pages
         public MainPage EnterUserLogInData(UserData data, string password)
         {
             Logger.Log.Info("Enter login user data: Email: " + data.Email + " Password: " + password);
+            logInEmailInput = GetElement("//*[@class='mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid']");
             logInEmailInput.SendKeys(data.Email);
+            logInPasswordInput = GetElement("//*[@name='password']");
             logInPasswordInput.SendKeys(password);
             return this;
         }
@@ -282,7 +296,9 @@ namespace FlyuiaTestFramework.Pages
         public MainPage ClickLogInButton()
         {
             Logger.Log.Info("Loggin in");
+            logInBtn = GetElement("//*[@class='form--buttons']");
             logInBtn.Click();
+            logInErrorMsg = GetElement("//*[@class='validation-error ng-star-inserted']");
             return this;
         }
     }
