@@ -65,36 +65,15 @@ namespace FlyuiaTestFramework.Tests
         }
 
         [Test]
-        public void BabiesMoreThanAdults()
+        public void ChangeInterfaceLanguage()
         {
-            TakeScreenshotWhenTestFailed(() =>
-            {
-                Logger.Log.Info("Start \"BabiesMoreThanAdults\" test");
-                MainPage mainPage = new MainPage(Driver)
-                     .ClickOneWayButton()
-                     .ChooseFromAirport()
-                     .ChooseToAirport()
-                     .ClickPassengersCountButton()
-                     .ClickPlusOneBabyBtn()
-                     .ClickPlusOneBabyBtn();
-                Assert.AreEqual("Кожне немовля може подорожувати щонайменше з одним дорослим", mainPage.countBabiesErrorMsg.Text);
-            });
-        }
-
-        [Test]
-        public void DepartureCityEqualsArrivalCity()
-        {
-            TakeScreenshotWhenTestFailed(() =>
-            {
-                Logger.Log.Info("Start \"DepartureCityEqualsArrivalCity\" test");
-                FlightsSchedulePage flightsSchedulePage = new MainPage(Driver)
-                     .GoToFlightsSchedulePage()
-                     .SelectFromAirport()
-                     .SelectToAirport()
-                     .ChooseDate()
-                     .ClickSearchTicketsButton();
-                Assert.AreEqual("Рейси недоступні або продані.Будь ласка, виберіть іншу дату або змініть параметри запиту.", flightsSchedulePage.errorMsg.Text);
-            });
+            Logger.Log.Info("Start \"ChangeInterfaceLanguage\" test");
+            MainPage mainPage = new MainPage(Driver)
+                .ClickLanguageSelector()
+                .SelectLocationElement()
+                .SelectLanguageElement()
+                .ClickConfirmLanguageButton();
+            Assert.AreEqual("Мой Аккаунт", mainPage.logInText.Text);
         }
 
         [Test]
@@ -129,8 +108,8 @@ namespace FlyuiaTestFramework.Tests
             {
                 Logger.Log.Info("Start \"SearchFlightWithEmptyArrivalCity\" test");
                 MainPage mainPage = new MainPage(Driver)
-                .ClickOneWayButton()
-                .ChooseFromAirport();
+                    .ClickOneWayButton()
+                    .ChooseFromAirport();
                 Assert.IsTrue(mainPage.searchFlightBtn.Enabled);
             });
         }
@@ -142,15 +121,13 @@ namespace FlyuiaTestFramework.Tests
             {
                 Logger.Log.Info("Start \"SearchFlightWithPastDate\" test");
                 MainPage mainPage = new MainPage(Driver)
-                .ClickOneWayButton()
-                .ChooseFromAirport()
-                .ChooseToAirport()
-                .ClickDatePicker();
+                    .ClickOneWayButton()
+                    .ChooseFromAirport()
+                    .ChooseToAirport()
+                    .ClickDatePicker();
                 Assert.IsTrue(mainPage.searchFlightBtn.Enabled);
             });
         }
-
-
 
         [Test]
         public void LogInWithWrongUserData()
@@ -164,6 +141,52 @@ namespace FlyuiaTestFramework.Tests
                                         RandomNumbers.RandomString(10))
                     .ClickLogInButton();
                 Assert.AreEqual("Недійсні облікові дані користувача", mainPage.logInErrorMsg.Text);
+            });
+        }
+
+
+        [Test]
+        public void EnterWrongCardNumberAndPassword()
+        {
+            Logger.Log.Info("Start \"DepartureCityEqualsArrivalCity\" test");
+            FlightsSchedulePage flightsSchedulePage = new MainPage(Driver)
+                 .GoToFlightsSchedulePage()
+                 .EnterCode("100000" + RandomNumbers.FlightNumber())
+                 .EnterPassword("123456")
+                 .ClickEnterButton();
+            Assert.AreEqual("Невірний Номер картки або Пароль", flightsSchedulePage.enterErrorMsg.Text);
+        }
+
+        
+        public void BabiesMoreThanAdults()
+        {
+            TakeScreenshotWhenTestFailed(() =>
+            {
+                Logger.Log.Info("Start \"BabiesMoreThanAdults\" test");
+                MainPage mainPage = new MainPage(Driver)
+                     .ClickOneWayButton()
+                     .ChooseFromAirport()
+                     .ChooseToAirport()
+                     .ClickPassengersCountButton()
+                     .ClickPlusOneBabyBtn()
+                     .ClickPlusOneBabyBtn();
+                Assert.AreEqual("Кожне немовля може подорожувати щонайменше з одним дорослим", mainPage.countBabiesErrorMsg.Text);
+            });
+        }
+
+        
+        public void DepartureCityEqualsArrivalCity()
+        {
+            TakeScreenshotWhenTestFailed(() =>
+            {
+                Logger.Log.Info("Start \"DepartureCityEqualsArrivalCity\" test");
+                FlightsSchedulePage flightsSchedulePage = new MainPage(Driver)
+                     .GoToFlightsSchedulePage()
+                     .SelectFromAirport()
+                     .SelectToAirport()
+                     .ChooseDate()
+                     .ClickSearchTicketsButton();
+                Assert.AreEqual("Рейси недоступні або продані.Будь ласка, виберіть іншу дату або змініть параметри запиту.", flightsSchedulePage.errorMsg.Text);
             });
         }
     }

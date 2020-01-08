@@ -109,11 +109,14 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='warning-pax-count")]
         public IWebElement countBabiesErrorMsg;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[4]/a")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[3]/a")]
         public IWebElement flightsScheduleBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@class='obe-login']")]
         public IWebElement logInFormBtn;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='obe-user-login-widget']/app-sign-in-root/div/div/button/div/span")]
+        public IWebElement logInText;
 
         //[FindsBy(How = How.XPath, Using = "//*[@class='mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid")]
         public IWebElement logInEmailInput;
@@ -126,8 +129,28 @@ namespace FlyuiaTestFramework.Pages
 
         //[FindsBy(How = How.XPath, Using = "//*[@id='validation-error ng-star-inserted']")]
         public IWebElement logInErrorMsg;
-        
-        
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[2]/ul/li[1]/span[1]/img")]
+        public IWebElement langSelector;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[9]/form/span[1]/input")]
+        public IWebElement locationInput;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='mCSB_1_container']/li[5]")]
+        public IWebElement locationElement;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[9]/form/span[2]/input")]
+        public IWebElement languageInput;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='mCSB_2_container']/li[12]")]
+        public IWebElement languageElement;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[9]/form/button")]
+        public IWebElement confirmLanguageBtn;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[4]/a")]
+        public IWebElement panoramaClubBtn;
+
         public static IWebElement WaitForElementToAppear(IWebDriver driver, int waitTime, By waitingElement)
         {
             IWebElement wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementExists(waitingElement));
@@ -152,10 +175,9 @@ namespace FlyuiaTestFramework.Pages
         {
             Logger.Log.Info("Go to flights schedule page");
             Actions action = new Actions(driver);
-            action.MoveToElement(flightsScheduleBtn).Click().Build().Perform();
+            action.MoveToElement(panoramaClubBtn).Click().Build().Perform();
             return new FlightsSchedulePage(driver);
         }
-
 
         public MainPage FillInUserDataFields(UserData data)
         {
@@ -184,6 +206,38 @@ namespace FlyuiaTestFramework.Pages
             countrySelectorBtn.Click();
             return this;
         }
+
+        public MainPage SelectLocationElement()
+        {
+            Logger.Log.Info("Select location");
+            locationInput.Click();
+            locationElement.Click();
+            return this;
+        }
+
+        public MainPage SelectLanguageElement()
+        {
+            Logger.Log.Info("Select language");
+            languageInput.Click();
+            languageElement.Click();
+            return this;
+        }
+
+        public MainPage ClickConfirmLanguageButton()
+        {
+            Logger.Log.Info("Select language");
+            confirmLanguageBtn.Click();
+            return this;
+        }
+
+
+        public MainPage ClickLanguageSelector()
+        {
+            Logger.Log.Info("Open language selector");
+            langSelector.Click();
+            return this;
+        }
+
 
         public MainPage ClickOutOfAnyButtons()
         {

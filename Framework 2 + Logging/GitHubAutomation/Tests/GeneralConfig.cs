@@ -47,7 +47,7 @@ namespace FlyuiaTestFramework.Tests
         public void QuitDriver()
         {
             Logger.Log.Info("Test finished");
-            //DriverSingleton.CloseDriver();
+            DriverSingleton.CloseDriver();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace FlyuiaTestFramework.Services
 
         public static string GetTestData(string key)
         {
-            return ConfigFile.AppSettings.Settings[key]?.Value;
+            return ConfigFile.AppSettings.Settings[key].Value;
         }
     }
 }
