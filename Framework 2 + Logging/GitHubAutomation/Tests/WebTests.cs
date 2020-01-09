@@ -18,6 +18,7 @@ namespace FlyuiaTestFramework.Tests
     public class WebTests : GeneralConfig
     {
         [Test]
+        [Category("UserData")]
         public void SendDataWithSomeEmptyFields()
         {
             TakeScreenshotWhenTestFailed(() =>
@@ -131,8 +132,9 @@ namespace FlyuiaTestFramework.Tests
             });
         }
 		
-		[Category("RandomValues")]
+		
         [Test]
+        [Category("UserData")]
         public void LogInWithWrongUserData()
         {
             TakeScreenshotWhenTestFailed(() =>
@@ -149,6 +151,7 @@ namespace FlyuiaTestFramework.Tests
 
 
         [Test]
+        [Category("RandomValues")]
         public void EnterWrongCardNumberAndPassword()
         {
             Logger.Log.Info("Start \"DepartureCityEqualsArrivalCity\" test");
@@ -158,39 +161,6 @@ namespace FlyuiaTestFramework.Tests
                  .EnterPassword("123456")
                  .ClickEnterButton();
             Assert.AreEqual("Невірний Номер картки або Пароль", flightsSchedulePage.enterErrorMsg.Text);
-        }
-
-        
-        public void BabiesMoreThanAdults()
-        {
-            TakeScreenshotWhenTestFailed(() =>
-            {
-                Logger.Log.Info("Start \"BabiesMoreThanAdults\" test");
-                MainPage mainPage = new MainPage(Driver)
-                     .ClickOneWayButton()
-                     .ChooseFromAirport()
-                     .ChooseToAirport()
-                     .ClickPassengersCountButton()
-                     .ClickPlusOneBabyBtn()
-                     .ClickPlusOneBabyBtn();
-                Assert.AreEqual("Кожне немовля може подорожувати щонайменше з одним дорослим", mainPage.countBabiesErrorMsg.Text);
-            });
-        }
-
-        
-        public void DepartureCityEqualsArrivalCity()
-        {
-            TakeScreenshotWhenTestFailed(() =>
-            {
-                Logger.Log.Info("Start \"DepartureCityEqualsArrivalCity\" test");
-                FlightsSchedulePage flightsSchedulePage = new MainPage(Driver)
-                     .GoToFlightsSchedulePage()
-                     .SelectFromAirport()
-                     .SelectToAirport()
-                     .ChooseDate()
-                     .ClickSearchTicketsButton();
-                Assert.AreEqual("Рейси недоступні або продані.Будь ласка, виберіть іншу дату або змініть параметри запиту.", flightsSchedulePage.errorMsg.Text);
-            });
-        }
+        }    
     }
 }

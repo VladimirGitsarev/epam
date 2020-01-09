@@ -112,7 +112,7 @@ namespace FlyuiaTestFramework.Pages
         {
             Logger.Log.Info("Search flights");
             enterBtn.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             enterErrorMsg = GetElement("//*[@id='response-title']");
             return this;
         }

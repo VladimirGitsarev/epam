@@ -35,6 +35,7 @@ namespace FlyuiaTestFramework.Pages
             flightCheckBox.Click();
             return this;
         }
+
         public OnlineBoardPage InputFlightNumber(string text)
         {
             Logger.Log.Info("Enter flight number: " + text);

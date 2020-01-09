@@ -35,8 +35,8 @@ namespace FlyuiaTestFramework.Driver
                         new DriverManager().SetUpDriver(new EdgeConfig());
                         driver = new ChromeDriver();
                         break;
-
                 }
+                driver.Manage().Window.Maximize();
                 driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
             }
             return driver;

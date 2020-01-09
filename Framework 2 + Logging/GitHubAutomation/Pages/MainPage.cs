@@ -20,13 +20,15 @@ namespace FlyuiaTestFramework.Pages
             PageFactory.InitElements(driver, this);
             this.driver = driver;
         }
+       
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[1]/a")]
+        public IWebElement servicesBtn;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[2]/div[1]/ul/li[1]/a")]
+        public IWebElement ticketsBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-v2 btn-blue btn-small']")]
         public IWebElement specialsBtn;
-
-        public IWebElement closeStartWindowBtn;
-        //[FindsBy(How = How.XPath, Using = "//*[@id='email']")]
-        public IWebElement emailInput;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='CustomFields_2_8']")]
         public IWebElement nameInput;
@@ -61,11 +63,6 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[6]")]
         public IWebElement oneCountryFromElement;
 
-        //[FindsBy(How = How.XPath, Using = "//*[@class='cities-container ng-star-inserted']/div/div[1]")]
-        public IWebElement oneCityFromElement;
-
-        public IWebElement oneSameCityToElement;
-
         [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[2]/sw-form-control-suggester/div/i")]
         public IWebElement countryToPickerShowBtn;
 
@@ -78,8 +75,6 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='ps-content']/div[6]")]
         public IWebElement oneCountryToSameElement;
 
-        public IWebElement oneCityToElement;
-
         [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[3]/div[1]/sw-form-control-datepicker/div[1]/div[2]/div")]
         public IWebElement dataPickerBtn;
 
@@ -89,16 +84,11 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div/div/div/div[2]/div[3]/div[2]/div[3]")]
         public IWebElement choosePastDayElement;
 
-        
-
         [FindsBy(How = How.XPath, Using = "//*[@class='focus-trap ng-untouched ng-pristine ng-valid']")]
         public IWebElement promoInput;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='SEARCH_WIDGET_FORM_BUTTONS_SEARCH_FLIGHTS']")]
         public IWebElement searchFlightBtn;
-
-        //[FindsBy(How = How.XPath, Using = "//*[@id='mat-dialog-0']/sw-dialog-error/div/div[2]/span")]
-        public IWebElement promoErrorMsg;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='1']/div/sw-root/sw-layout/sw-search-flights/div[2]/form/div[4]/div[1]/sw-form-control-passengers/div[1]/div[2]/div")]
         public IWebElement choosePasengersCountBtn;
@@ -118,22 +108,10 @@ namespace FlyuiaTestFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='obe-user-login-widget']/app-sign-in-root/div/div/button/div/span")]
         public IWebElement logInText;
 
-        //[FindsBy(How = How.XPath, Using = "//*[@class='mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid")]
-        public IWebElement logInEmailInput;
-
-        //[FindsBy(How = How.XPath, Using = "//*[@id='mat-input-21']")]
-        public IWebElement logInPasswordInput;
-
-        //[FindsBy(How = How.XPath, Using = "/html/body/div[5]/div[2]/div/mat-dialog-container/app-sign-in-dialog/perfect-scrollbar/div/div[1]/div/mat-tab-group/div/mat-tab-body[1]/div/app-sign-in/mat-tab-group/div/mat-tab-body[1]/div/app-sign-in-email/div/div/div[1]/form/div[4]/button")]
-        public IWebElement logInBtn;
-
-        //[FindsBy(How = How.XPath, Using = "//*[@id='validation-error ng-star-inserted']")]
-        public IWebElement logInErrorMsg;
-
         [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[2]/ul/li[1]/span[1]/img")]
         public IWebElement langSelector;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[9]/form/span[1]/input")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[2]/div/div[9]/form/span[1]")]
         public IWebElement locationInput;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='mCSB_1_container']/li[5]")]
@@ -150,6 +128,26 @@ namespace FlyuiaTestFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "/html/body/header/nav/div/div[1]/div[1]/ul/li[4]/a")]
         public IWebElement panoramaClubBtn;
+
+        public IWebElement logInEmailInput;
+
+        public IWebElement logInPasswordInput;
+
+        public IWebElement logInBtn;
+
+        public IWebElement logInErrorMsg;
+
+        public IWebElement oneCityFromElement;
+
+        public IWebElement oneSameCityToElement;
+
+        public IWebElement oneCityToElement;
+
+        public IWebElement closeStartWindowBtn;
+
+        public IWebElement emailInput;
+
+        public IWebElement promoErrorMsg;
 
         public static IWebElement WaitForElementToAppear(IWebDriver driver, int waitTime, By waitingElement)
         {
@@ -194,8 +192,8 @@ namespace FlyuiaTestFramework.Pages
         public MainPage ClickGetSpecialProposionsSubscribeButton()
         {
             Logger.Log.Info("Open special propositions");
-            //closeStartWindowBtn = GetElement("//*[@id='promo-sub']/div/div/div[1]/span");
-            //closeStartWindowBtn.Click();
+            servicesBtn.Click();
+            ticketsBtn.Click();
             specialsBtn.Click();
             return this;
         }
@@ -210,6 +208,8 @@ namespace FlyuiaTestFramework.Pages
         public MainPage SelectLocationElement()
         {
             Logger.Log.Info("Select location");
+            locationInput = GetElement("/html/body/header/nav/div/div[2]/div/div[9]/form/span[1]");
+            Thread.Sleep(1000);
             locationInput.Click();
             locationElement.Click();
             return this;
@@ -229,16 +229,14 @@ namespace FlyuiaTestFramework.Pages
             confirmLanguageBtn.Click();
             return this;
         }
-
-
+        
         public MainPage ClickLanguageSelector()
         {
             Logger.Log.Info("Open language selector");
             langSelector.Click();
             return this;
         }
-
-
+        
         public MainPage ClickOutOfAnyButtons()
         {
             Logger.Log.Info("Unfocus on input field");
